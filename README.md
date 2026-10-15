@@ -38,9 +38,9 @@ All source code, simulated datasets, and project documentation are organized und
 
 | Work Package | Role Title | Assigned Student | Primary Responsibilities |
 | :--- | :--- | :--- | :--- |
-| **CSE-1** | IoT Simulation & Data Lead | *TBD* | Virtual sensor simulator, MQTT data pipeline, time-series database |
-| **CSE-2** | RSL Modeling Lead | *TBD* | Kinetic (Arrhenius/Q10) and ML-based RSL prediction models |
-| **CSE-3** | Digital Twin & Integration Lead | Basil Elcabiri | Backend API, digital twin state model, web dashboard, repository management |
-| **IE-1** | Cold Chain Process & Data Lead | *TBD* | Cold chain process mapping, product kinetic parameters, scenario generation |
-| **IE-2** | Optimization Modeling Lead | *TBD* | Shelf-life-aware allocation and VRPTW formulation (MILP & heuristics) |
-| **IE-3** | Evaluation & Coordination Lead | *TBD* | KPI analysis (FIFO vs. FEFO), sensitivity analysis, project schedule & minutes |
+| **CSE-1** | IoT Simulation & Data Lead | *---* | Virtual sensor simulator, MQTT data pipeline, time-series database |
+| **CSE-2** | RSL Modeling Lead | *---* | Kinetic (Arrhenius/Q10) and ML-based RSL prediction models |
+| **CSE-3** | Digital Twin & Integration Lead | --- | Backend API, digital twin state model, web dashboard, repository management |
+| **IE-1** | Cold Chain Process & Data Lead | *---* | Cold chain process mapping, product kinetic parameters, scenario generation |
+| **IE-2** | Optimization Modeling Lead | *---* | Shelf-life-aware allocation and VRPTW formulation (MILP & heuristics) |
+| **IE-3** | Evaluation & Coordination Lead | *---* | KPI analysis (FIFO vs. FEFO), sensitivity analysis, project schedule & minutes |
