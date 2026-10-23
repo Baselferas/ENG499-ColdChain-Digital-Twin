@@ -1,0 +1,101 @@
+{
+  "model": "LinearRegression",
+  "feature": "equiv_age_at_4c_days",
+  "target": "target_rsl_days",
+  "intercept": 8.15420035305838,
+  "coefficient": -0.9603145856512665,
+  "correlation": -0.8551497617901267,
+  "split": {
+    "method": "GroupShuffleSplit",
+    "group": "lot_id",
+    "test_size": 0.2,
+    "random_state": 42,
+    "train_rows": 9560,
+    "test_rows": 2493,
+    "train_lots": 173,
+    "test_lots": 44
+  },
+  "holdout_test_metrics": {
+    "n": 2493,
+    "MAE_days": 0.864875960746236,
+    "RMSE_days": 1.1574746373256408,
+    "R2": 0.6574115534487852
+  },
+  "group_kfold": {
+    "n_splits": 5,
+    "folds": [
+      {
+        "n": 2407,
+        "MAE_days": 0.7888319801273326,
+        "RMSE_days": 1.0751400438684924,
+        "R2": 0.6904769893949627,
+        "fold": 1
+      },
+      {
+        "n": 2409,
+        "MAE_days": 0.8015232458410521,
+        "RMSE_days": 0.9735605392294621,
+        "R2": 0.7420674839099803,
+        "fold": 2
+      },
+      {
+        "n": 2415,
+        "MAE_days": 0.7950376173709299,
+        "RMSE_days": 1.0145294581158892,
+        "R2": 0.7111162920357658,
+        "fold": 3
+      },
+      {
+        "n": 2407,
+        "MAE_days": 0.7396820147000435,
+        "RMSE_days": 0.9603663811211505,
+        "R2": 0.7309373113492121,
+        "fold": 4
+      },
+      {
+        "n": 2415,
+        "MAE_days": 0.7017709262306665,
+        "RMSE_days": 0.8728403327387344,
+        "R2": 0.7780830329243795,
+        "fold": 5
+      }
+    ],
+    "summary": {
+      "MAE_days": {
+        "mean": 0.7653691568540049,
+        "std": 0.038580834584908165
+      },
+      "RMSE_days": {
+        "mean": 0.9792873510147457,
+        "std": 0.06656051684750511
+      },
+      "R2": {
+        "mean": 0.73053622192286,
+        "std": 0.029582785195791005
+      }
+    }
+  },
+  "lab_checks": {
+    "status": "lab file loaded",
+    "n_lab_rows": 154,
+    "lab_columns": [
+      "sample_time",
+      "store",
+      "su_id",
+      "lot_id",
+      "spc_log_cfu_ml"
+    ],
+    "note": "spc_log_cfu_ml has about +/-0.25 log measurement error.",
+    "n_matched": 153,
+    "classification": {
+      "lab_above_limit": 3,
+      "model_predicts_expired": 0,
+      "agreement_rate": 0.9803921568627451
+    },
+    "days_metrics": "Not computed: set GROWTH_RATE_LOG_PER_DAY from the project's growth/lag model, or obtain matched reference RSL labels."
+  },
+  "output_field": {
+    "name": "rsl_predicted_days",
+    "unit": "days"
+  }
+}
