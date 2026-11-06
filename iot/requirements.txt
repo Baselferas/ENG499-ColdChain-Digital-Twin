@@ -1,0 +1,5 @@
+pandas
+numpy
+matplotlib
+paho-mqtt>=1.6
+psycopg2-binary

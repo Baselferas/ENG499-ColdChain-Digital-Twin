@@ -1,0 +1,29 @@
+# Development stack for the cold chain project: MQTT broker + time-series database.
+# Start:  docker compose up -d        Stop:  docker compose down   (data is kept)
+# Delete everything including the data:  docker compose down -v
+services:
+  db:
+    image: timescale/timescaledb:latest-pg16     # PostgreSQL 16 + TimescaleDB (time-series)
+    container_name: coldchain-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: coldchain
+      POSTGRES_PASSWORD: coldchain
+      POSTGRES_DB: coldchain
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./db/schema.sql:/docker-entrypoint-initdb.d/01_schema.sql:ro
+
+  mqtt:
+    image: eclipse-mosquitto:2
+    container_name: coldchain-mqtt
+    restart: unless-stopped
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+
+volumes:
+  pgdata:
