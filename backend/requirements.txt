@@ -1,0 +1,11 @@
+fastapi>=0.110
+uvicorn>=0.29
+pandas>=2.0
+numpy>=1.26
+sqlalchemy>=2.0        # only needed for SENSOR_SOURCE=postgres
+psycopg2-binary>=2.9   # only needed for SENSOR_SOURCE=postgres
+paho-mqtt>=1.6         # only needed for MQTT_ENABLED=1
+# dashboard
+streamlit>=1.40
+plotly>=5.20
+requests>=2.31
