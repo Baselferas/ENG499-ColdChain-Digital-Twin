@@ -1,0 +1,188 @@
+{
+  "split": {
+    "method": "GroupShuffleSplit",
+    "group": "lot_id",
+    "test_size": 0.2,
+    "seed": 42,
+    "train_rows": 9560,
+    "test_rows": 2493,
+    "train_lots": 173,
+    "test_lots": 44
+  },
+  "gb_params": {
+    "n_estimators": 300,
+    "learning_rate": 0.05,
+    "max_depth": 3,
+    "subsample": 0.8,
+    "min_samples_leaf": 30,
+    "random_state": 42
+  },
+  "kinetic_fixed_L_days": 8.289698221757321,
+  "linear_intercept": 8.15420035305838,
+  "linear_coef": -0.9603145856512665,
+  "holdout": {
+    "K1_Linear (equiv_age only)": {
+      "n": 2493,
+      "MAE": 0.8540020237726629,
+      "RMSE": 1.1292999683787908,
+      "R2": 0.6738868002198053
+    },
+    "K2_Kinetic fixed-slope (equiv_age only)": {
+      "n": 2493,
+      "MAE": 0.8502471182910476,
+      "RMSE": 1.1274935805784787,
+      "R2": 0.6749292438236714
+    },
+    "R1_Ridge (all features)": {
+      "n": 2493,
+      "MAE": 0.8561450763875454,
+      "RMSE": 1.1082323961670273,
+      "R2": 0.6859408661566506
+    },
+    "ML_GradientBoosting (all features)": {
+      "n": 2493,
+      "MAE": 0.8608665272275334,
+      "RMSE": 1.1272730818205698,
+      "R2": 0.6750563765903039
+    }
+  },
+  "group_kfold": {
+    "K1_Linear (equiv_age only)": {
+      "MAE": {
+        "mean": 0.7608031396218612,
+        "std": 0.038795749852265075
+      },
+      "RMSE": {
+        "mean": 0.9703925172958285,
+        "std": 0.06551713943239634
+      },
+      "R2": {
+        "mean": 0.7354475099743303,
+        "std": 0.02856598530432111
+      }
+    },
+    "K2_Kinetic fixed-slope (equiv_age only)": {
+      "MAE": {
+        "mean": 0.7591940946811949,
+        "std": 0.03794217952902189
+      },
+      "RMSE": {
+        "mean": 0.9702464598993403,
+        "std": 0.06636169393019865
+      },
+      "R2": {
+        "mean": 0.7354762325032865,
+        "std": 0.029319891225042857
+      }
+    },
+    "R1_Ridge (all features)": {
+      "MAE": {
+        "mean": 0.7579510138471417,
+        "std": 0.0500168896784521
+      },
+      "RMSE": {
+        "mean": 0.9598287629010473,
+        "std": 0.06357844801549083
+      },
+      "R2": {
+        "mean": 0.7412827920271381,
+        "std": 0.026410028917585968
+      }
+    },
+    "ML_GradientBoosting (all features)": {
+      "MAE": {
+        "mean": 0.7773801603818218,
+        "std": 0.038753799719507105
+      },
+      "RMSE": {
+        "mean": 0.9893363000237783,
+        "std": 0.05931713081415116
+      },
+      "R2": {
+        "mean": 0.725316002614044,
+        "std": 0.024296678783613145
+      }
+    }
+  },
+  "ablation": [
+    {
+      "step": "equiv_age only",
+      "n_features": 1,
+      "holdout_MAE": 0.8579042156729462,
+      "holdout_RMSE": 1.131440267800516,
+      "cv_MAE": 0.7642677047103339,
+      "cv_RMSE": 0.97227143470024
+    },
+    {
+      "step": "+ stage_hours",
+      "n_features": 7,
+      "holdout_MAE": 0.8676288613091218,
+      "holdout_RMSE": 1.145077908292287,
+      "cv_MAE": 0.777330637793954,
+      "cv_RMSE": 0.9920293735207899
+    },
+    {
+      "step": "+ degree_hours",
+      "n_features": 9,
+      "holdout_MAE": 0.8721406534969761,
+      "holdout_RMSE": 1.1319632211322181,
+      "cv_MAE": 0.7733632299950363,
+      "cv_RMSE": 0.9838966379699977
+    },
+    {
+      "step": "+ max_temperature",
+      "n_features": 10,
+      "holdout_MAE": 0.8660920685485622,
+      "holdout_RMSE": 1.1298622636943307,
+      "cv_MAE": 0.7757363837232719,
+      "cv_RMSE": 0.9866777939794433
+    },
+    {
+      "step": "+ missing_hours",
+      "n_features": 12,
+      "holdout_MAE": 0.8608665272275334,
+      "holdout_RMSE": 1.1272730818205698,
+      "cv_MAE": 0.7773801603818218,
+      "cv_RMSE": 0.9893363000237783
+    }
+  ],
+  "uncertainty": {
+    "method": "OOF GroupKFold residual SD by predicted-RSL quartile",
+    "sigma_bins": [
+      0.9586680409756471,
+      0.9839048958604588,
+      0.9827423903282856,
+      1.0350177087680394
+    ],
+    "sigma_global": 0.9910092949491447,
+    "coverage_80pct_on_heldout_lots": 0.7432811873245087,
+    "mean_sigma_test": 0.9906135031071961
+  },
+  "lab": {
+    "n_lab_rows": 154,
+    "note": "spc_log_cfu_ml has about +/-0.25 log measurement error",
+    "n_matched": 153,
+    "median_abs_time_gap_h": 5.366666666666666,
+    "lab_minus_table_log_count": {
+      "mean": -0.011862745098039222,
+      "sd": 0.2942146785763472,
+      "within_0.5_log": 0.9215686274509803
+    },
+    "spearman_pred_gb_vs_lab_count": {
+      "rho": -0.8082649993931245,
+      "p": 1.4788611645068319e-36
+    },
+    "spearman_pred_k1_vs_lab_count": {
+      "rho": -0.7944481170501917,
+      "p": 1.612044632417981e-34
+    },
+    "classification": {
+      "lab_above_limit": 3,
+      "gb_pred_rsl_le_1d_among_those": 2,
+      "gb_pred_rsl_le_0": 0,
+      "mean_pred_rsl_over_limit_samples": 0.8836840869282604,
+      "mean_pred_rsl_other_samples": 5.0872697557198805
+    },
+    "days_metrics": "Not computed: needs a growth rate agreed with the supervisor (lab data are counts, not RSL days)."
+  }
+}
