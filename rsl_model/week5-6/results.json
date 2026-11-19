@@ -1,0 +1,311 @@
+{
+  "generated_at_utc": "2026-11-19T17:48:33.941074+00:00",
+  "unit": "days",
+  "target_column": "target_rsl_days",
+  "kinetic_column": "equiv_age_at_4c_days",
+  "dataset_summary": {
+    "total_rows": 12053,
+    "total_lots": 217,
+    "train_rows": 9560,
+    "train_lots": 173,
+    "test_rows": 2493,
+    "test_lots": 44,
+    "features_used": [
+      "equiv_age_at_4c_days",
+      "age_h",
+      "hours_coldroom",
+      "hours_dock",
+      "hours_vehicle",
+      "hours_vehicle_stop",
+      "hours_floor",
+      "hours_display",
+      "meas_mean_c",
+      "meas_max_c",
+      "meas_dh_above_4",
+      "meas_dh_above_8",
+      "meas_missing_h",
+      "hours_without_sensor",
+      "ambient_max_c_on_route",
+      "checkpoint",
+      "store"
+    ]
+  },
+  "models": {
+    "K1_Linear": {
+      "description": "equiv_age_at_4c_days only (unconstrained linear)",
+      "feature_count": 1,
+      "holdout_mae_days": 0.854,
+      "holdout_rmse_days": 1.1293,
+      "cv_mae_mean_days": 0.7371,
+      "cv_mae_std_days": 0.0546,
+      "cv_rmse_mean_days": 0.9305,
+      "cv_rmse_std_days": 0.0312
+    },
+    "K2_Kinetic": {
+      "description": "equiv_age_at_4c_days only (fixed-slope kinetic law)",
+      "feature_count": 1,
+      "holdout_mae_days": 0.8502,
+      "holdout_rmse_days": 1.1275,
+      "cv_mae_mean_days": 0.7366,
+      "cv_mae_std_days": 0.0543,
+      "cv_rmse_mean_days": 0.9317,
+      "cv_rmse_std_days": 0.0312
+    },
+    "R1_Ridge": {
+      "description": "Full engineered feature set (L2 regularized)",
+      "feature_count": 17,
+      "holdout_mae_days": 0.8599,
+      "holdout_rmse_days": 1.1091,
+      "cv_mae_mean_days": 0.7357,
+      "cv_mae_std_days": 0.065,
+      "cv_rmse_mean_days": 0.9246,
+      "cv_rmse_std_days": 0.0466
+    },
+    "ML_Gradient_Boosting": {
+      "description": "Full engineered feature set (non-linear ensemble)",
+      "feature_count": 17,
+      "holdout_mae_days": 0.8531,
+      "holdout_rmse_days": 1.1173,
+      "cv_mae_mean_days": 0.7598,
+      "cv_mae_std_days": 0.0767,
+      "cv_rmse_mean_days": 0.9544,
+      "cv_rmse_std_days": 0.0572
+    }
+  },
+  "error_analysis_slices": [
+    {
+      "slice_dimension": "checkpoint",
+      "slice_value": "arrival",
+      "sample_count": 715,
+      "lot_count": 44,
+      "mae_days": 0.8603,
+      "rmse_days": 1.1195,
+      "bias_mean_days": 0.0848
+    },
+    {
+      "slice_dimension": "checkpoint",
+      "slice_value": "display_day_1",
+      "sample_count": 600,
+      "lot_count": 44,
+      "mae_days": 0.8604,
+      "rmse_days": 1.1241,
+      "bias_mean_days": 0.0286
+    },
+    {
+      "slice_dimension": "checkpoint",
+      "slice_value": "display_day_2",
+      "sample_count": 548,
+      "lot_count": 44,
+      "mae_days": 0.8576,
+      "rmse_days": 1.1202,
+      "bias_mean_days": 0.0064
+    },
+    {
+      "slice_dimension": "checkpoint",
+      "slice_value": "display_day_3",
+      "sample_count": 412,
+      "lot_count": 44,
+      "mae_days": 0.8529,
+      "rmse_days": 1.119,
+      "bias_mean_days": -0.0306
+    },
+    {
+      "slice_dimension": "checkpoint",
+      "slice_value": "display_day_4",
+      "sample_count": 182,
+      "lot_count": 41,
+      "mae_days": 0.8419,
+      "rmse_days": 1.134,
+      "bias_mean_days": 0.0147
+    },
+    {
+      "slice_dimension": "checkpoint",
+      "slice_value": "display_day_5",
+      "sample_count": 36,
+      "lot_count": 16,
+      "mae_days": 0.5756,
+      "rmse_days": 0.7486,
+      "bias_mean_days": -0.1221
+    },
+    {
+      "slice_dimension": "store",
+      "slice_value": "D01",
+      "sample_count": 53,
+      "lot_count": 12,
+      "mae_days": 0.5732,
+      "rmse_days": 0.6516,
+      "bias_mean_days": -0.1474
+    },
+    {
+      "slice_dimension": "store",
+      "slice_value": "D02",
+      "sample_count": 60,
+      "lot_count": 16,
+      "mae_days": 0.6162,
+      "rmse_days": 0.795,
+      "bias_mean_days": -0.3785
+    },
+    {
+      "slice_dimension": "store",
+      "slice_value": "D03",
+      "sample_count": 61,
+      "lot_count": 13,
+      "mae_days": 0.5269,
+      "rmse_days": 0.6565,
+      "bias_mean_days": -0.3201
+    },
+    {
+      "slice_dimension": "store",
+      "slice_value": "D04",
+      "sample_count": 50,
+      "lot_count": 12,
+      "mae_days": 0.5936,
+      "rmse_days": 0.715,
+      "bias_mean_days": -0.0741
+    },
+    {
+      "slice_dimension": "store",
+      "slice_value": "D05",
+      "sample_count": 59,
+      "lot_count": 13,
+      "mae_days": 0.576,
+      "rmse_days": 0.7326,
+      "bias_mean_days": -0.2989
+    },
+    {
+      "slice_dimension": "store",
+      "slice_value": "U01",
+      "sample_count": 138,
+      "lot_count": 41,
+      "mae_days": 0.887,
+      "rmse_days": 1.1322,
+      "bias_mean_days": 0.2255
+    },
+    {
+      "slice_dimension": "store",
+      "slice_value": "U02",
+      "sample_count": 150,
+      "lot_count": 40,
+      "mae_days": 0.8956,
+      "rmse_days": 1.1396,
+      "bias_mean_days": 0.1068
+    },
+    {
+      "slice_dimension": "store",
+      "slice_value": "U03",
+      "sample_count": 113,
+      "lot_count": 42,
+      "mae_days": 0.8852,
+      "rmse_days": 1.1486,
+      "bias_mean_days": 0.099
+    },
+    {
+      "slice_dimension": "store",
+      "slice_value": "U04",
+      "sample_count": 132,
+      "lot_count": 39,
+      "mae_days": 0.8459,
+      "rmse_days": 1.1311,
+      "bias_mean_days": -0.0002
+    },
+    {
+      "slice_dimension": "store",
+      "slice_value": "U05",
+      "sample_count": 162,
+      "lot_count": 38,
+      "mae_days": 0.9333,
+      "rmse_days": 1.198,
+      "bias_mean_days": 0.0221
+    },
+    {
+      "slice_dimension": "store",
+      "slice_value": "U06",
+      "sample_count": 159,
+      "lot_count": 40,
+      "mae_days": 0.9517,
+      "rmse_days": 1.2181,
+      "bias_mean_days": 0.0698
+    },
+    {
+      "slice_dimension": "store",
+      "slice_value": "U07",
+      "sample_count": 176,
+      "lot_count": 40,
+      "mae_days": 1.0265,
+      "rmse_days": 1.2621,
+      "bias_mean_days": 0.0718
+    },
+    {
+      "slice_dimension": "store",
+      "slice_value": "U08",
+      "sample_count": 134,
+      "lot_count": 40,
+      "mae_days": 0.864,
+      "rmse_days": 1.1245,
+      "bias_mean_days": -0.0084
+    },
+    {
+      "slice_dimension": "store",
+      "slice_value": "U09",
+      "sample_count": 172,
+      "lot_count": 43,
+      "mae_days": 0.8492,
+      "rmse_days": 1.1024,
+      "bias_mean_days": 0.1157
+    },
+    {
+      "slice_dimension": "store",
+      "slice_value": "U10",
+      "sample_count": 119,
+      "lot_count": 41,
+      "mae_days": 0.9201,
+      "rmse_days": 1.1827,
+      "bias_mean_days": 0.0247
+    },
+    {
+      "slice_dimension": "store",
+      "slice_value": "U11",
+      "sample_count": 179,
+      "lot_count": 38,
+      "mae_days": 0.8042,
+      "rmse_days": 1.0902,
+      "bias_mean_days": -0.1021
+    },
+    {
+      "slice_dimension": "store",
+      "slice_value": "U12",
+      "sample_count": 140,
+      "lot_count": 34,
+      "mae_days": 0.8079,
+      "rmse_days": 1.1623,
+      "bias_mean_days": 0.2151
+    },
+    {
+      "slice_dimension": "store",
+      "slice_value": "U13",
+      "sample_count": 133,
+      "lot_count": 35,
+      "mae_days": 0.7702,
+      "rmse_days": 1.0659,
+      "bias_mean_days": 0.1527
+    },
+    {
+      "slice_dimension": "store",
+      "slice_value": "U14",
+      "sample_count": 165,
+      "lot_count": 40,
+      "mae_days": 0.8957,
+      "rmse_days": 1.1611,
+      "bias_mean_days": 0.0306
+    },
+    {
+      "slice_dimension": "store",
+      "slice_value": "U15",
+      "sample_count": 138,
+      "lot_count": 40,
+      "mae_days": 0.9661,
+      "rmse_days": 1.2315,
+      "bias_mean_days": -0.0448
+    }
+  ]
+}

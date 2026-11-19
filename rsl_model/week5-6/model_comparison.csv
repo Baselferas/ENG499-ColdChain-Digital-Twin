@@ -1,0 +1,5 @@
+model,description,feature_count,holdout_mae_days,holdout_rmse_days,cv_mae_mean_days,cv_mae_std_days,cv_rmse_mean_days,cv_rmse_std_days
+K1_Linear,equiv_age_at_4c_days only (unconstrained linear),1,0.854,1.1293,0.7371,0.0546,0.9305,0.0312
+K2_Kinetic,equiv_age_at_4c_days only (fixed-slope kinetic law),1,0.8502,1.1275,0.7366,0.0543,0.9317,0.0312
+R1_Ridge,Full engineered feature set (L2 regularized),17,0.8599,1.1091,0.7357,0.065,0.9246,0.0466
+ML_Gradient_Boosting,Full engineered feature set (non-linear ensemble),17,0.8531,1.1173,0.7598,0.0767,0.9544,0.0572
